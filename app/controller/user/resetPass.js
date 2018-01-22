@@ -42,33 +42,6 @@ module.exports = (req, res) => {
             })
           }
         })
-        // nodemailer.createTestAccount((err, account) => {
-        //   if (err) return error(res, 500, 'mail not send')
-        //   let transporter = nodemailer.createTransport({
-        //     host: 'smtp.gmail.com',
-        //     port: 465,
-        //     secure: true, // true for 465, false for other ports
-        //     auth: {
-        //       user: 'admmatcha@gmail.com', // generated ethereal user
-        //       pass: 'Apwn789123'  // generated ethereal password
-        //     }
-        //   })
-        //   let url = `http://localhost:3000/reset/resetpasswd/${hash}`
-        //   let mailOptions = {
-        //     from: '"Matcha Admin" <admmatcha@gmail.com>', // sender address
-        //     to: result[0].mail, // list of receivers
-        //     subject: 'Reset Passwd', // Subject line
-        //     text: ', // plain text body',
-        //     html: `Hey,<b>Pour reset ton passwd clique <a href=${url}>ici</a></b>` // html body
-        //   }
-        //   transporter.sendMail(mailOptions, (error, info) => {
-        //     if (error) return error(res, 500, 'mail not send')
-        //     return res.json({
-        //       success: true,
-        //       message: 'mail send'
-        //     })
-        //   })
-        // })
       } else return error(res, 404, false, 'Mail not found', 'mail')
     })
   })

@@ -8,7 +8,6 @@ class Home extends Component {
   }
 
   componentWillMount () {
-    console.log('je rentre sur la page home')
   }
 
   render () {
