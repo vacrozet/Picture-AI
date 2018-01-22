@@ -1,0 +1,77 @@
+.bodySigninReset {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-image: url('../image/fond.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bodySigninReset .blockSigninReset .text {
+  color: #ffffff;
+  font-family: var(--police);
+}
+.bodySigninReset .blockSigninReset .error {
+  color: #FA0000;
+  font-family: var(--police);
+}
+
+.bodySigninReset .blockSigninReset {
+  margin: auto;
+  border-radius: 4px;
+  background-color: var(--color1);
+  padding: 25px;
+  height: 330px;
+  width: 430px;
+}
+
+.bodySigninReset .blockSigninReset .title {
+  color: #ffffff;
+  font-size: 30px;
+  font-family: var(--police);
+}
+
+.bodySigninReset .blockSigninReset .button {
+  background-color: var(--color2);
+  border: var(--color2);
+  color: var(--color1);
+  margin-top: 20px;
+}
+.bodySigninReset .blockSigninReset .link {
+  color: var(--color2);
+  font-family: var(--police);
+}
+
+@media screen and (max-width: 800px) {
+  .bodySigninReset {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background-image: url('../image/fond.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;  
+  }
+  .bodySigninReset .blockSigninReset {
+    margin: auto;
+    border-radius: 4px;
+    background-color: var(--color1);
+    padding: 10px;
+    height: 280px;
+    width: 380px;
+  }  
+}
+
+@media screen and (max-width: 400px) {
+  .bodySigninReset .blockSigninReset {
+    margin: auto;
+    border-radius: 4px;
+    background-color: var(--color1);
+    padding: 10px;
+    height: 280px;
+    width: 310px;
+  }  
+}

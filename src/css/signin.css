@@ -1,0 +1,78 @@
+.bodySignin {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-image: url('../image/fond.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bodySignin .blockSignin {
+  margin: auto;
+  border-radius: 4px;
+  background-color: var(--color1);
+  padding: 25px;
+  height: 330px;
+  width: 430px;
+}
+
+.bodySignin .blockSignin .text {
+  color: #ffffff;
+  font-family: var(--police);
+}
+.bodySignin .blockSignin .title {
+  color: #ffffff;
+  font-size: 30px;
+  font-family: var(--police);
+}
+
+.bodySignin .blockSignin .button {
+  background-color: var(--color2);
+  border: var(--color2);
+  color: var(--color1);
+}
+.bodySignin .blockSignin .button:hover {
+  background-color: var(--color2);
+  border: var(--color2);
+  color: #ffffff;
+}
+
+.bodySignin .blockSignin .link {
+  color: var(--color2);
+  font-family: var(--police);
+}
+
+@media screen and (max-width: 800px) {
+  .bodySignin {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background-image: url('../image/fond.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;  
+  }
+  
+  .bodySignin .blockSignin {
+    margin: auto;
+    border-radius: 4px;
+    background-color: var(--color1);
+    padding: 10px;
+    height: 280px;
+    width: 380px;
+  }  
+}
+
+@media screen and (max-width: 400px) {
+  .bodySignin .blockSignin {
+    margin: auto;
+    border-radius: 4px;
+    background-color: var(--color1);
+    padding: 10px;
+    height: 280px;
+    width: 310px;
+  }  
+}
