@@ -1,0 +1,30 @@
+.bodyItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: solid 1px var(--color1);
+    justify-content: space-around;
+    height: 45px;
+}
+
+.bodyItem .mail {
+    margin: auto;
+    font-family: var(--police);
+}
+.bodyItem .buttonView {
+    margin: auto;
+    font-family: var(--police);
+    background-color: var(--color2);
+    border: var(--color2);
+    color: var(--color1);
+    font-family: var(--police);
+}
+.bodyItem .buttonView:hover {
+    margin: auto;
+    font-family: var(--police);
+    background-color: var(--color2);
+    border: var(--color2);
+    font-family: var(--police);
+    color: #ffffff;
+  
+}
