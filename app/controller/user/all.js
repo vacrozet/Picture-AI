@@ -1,4 +1,5 @@
 const db = require('../../db.js')
+const moment = require('moment')
 
 function erreur (res, status, bool, message) {
   res.status(status)
@@ -6,6 +7,13 @@ function erreur (res, status, bool, message) {
     success: bool,
     message: message
   })
+}
+
+function getMomentJs (time) {
+  return (
+    moment.locale('fr'),
+    moment.unix(time / 10).format('lll')
+  )
 }
 
 module.exports = (req, res) => {
@@ -19,6 +27,7 @@ module.exports = (req, res) => {
           delete element.path
           delete element.tokens
           delete element.project
+          element.lastConnexion = getMomentJs(element.lastConnexion)
         })
         res.json({
           success: true,

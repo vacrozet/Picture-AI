@@ -25,6 +25,7 @@ let id = uuid()
 let user = {
   _id: id,
   lock: true,
+  block: false,
   superUser: true,
   prenom: '',
   nom: '',
