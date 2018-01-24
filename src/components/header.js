@@ -14,18 +14,18 @@ class Header extends Component {
   }
   componentWillMount () {
     const lock = global.localStorage.getItem('lock')
+    if (lock === true) {
+      this.props.history.push('/changepass')
+    }
     if (global.localStorage.getItem('token')) {
       this.setState({Connexion: true}, () => {
         local().get('/user/info').then((res) => {
           this.props.handleConnexion(true, res.data.user.superUser)
-          this.setState({ superUser: true })
+          // this.setState({ superUser: true })
         }).catch((err) => {
           console.log(err)
         })
       })
-    }
-    if (lock === true) {
-      this.props.history.push('/changepass')
     }
   }
   componentWillReceiveProps (props) {
@@ -39,7 +39,7 @@ class Header extends Component {
   }
   handlelogout () {
     global.localStorage.removeItem('token')
-    global.localStorage.removeItem('Actif')
+    global.localStorage.removeItem('lock')
     this.props.handleConnexion(false)
     this.props.history.push('/')
   }

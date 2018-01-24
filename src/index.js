@@ -13,6 +13,7 @@ import Reset from './routes/reset.js'
 import Pass from './routes/changepass.js'
 import Setting from './routes/setting.js'
 import GestionUser from './routes/gestionUser.js'
+import Profile from './routes/profile.js'
 // import { local } from './utils/api'
 
 class Index extends Component {
@@ -34,14 +35,14 @@ class Index extends Component {
 
   componentWillMount () {
     const lock = global.localStorage.getItem('lock')
+    if (lock === true) {
+      this.props.history.push('/changepass')
+    }
     if (global.localStorage.getItem('token') && (
       this.props.location.pathname === '/signin' ||
       this.props.location.pathname === '/signin/reset' ||
       this.props.location.pathname === '/')) {
       this.props.history.push('/home')
-    }
-    if (lock === true) {
-      this.props.history.push('/changepass')
     }
   }
 
@@ -64,6 +65,9 @@ class Index extends Component {
           } />
           <Route exact path='/gestionutilisateurs' render={({history, match, location}) =>
             <GestionUser history={history} match={match} location={location} />
+          } />
+          <Route exact path='/gestionutilisateurs/:profile' render={({history, match, location}) =>
+            <Profile history={history} match={match} location={location} />
           } />
           <Route exact path='/home' render={({history, match, location}) =>
             <Home history={history} match={match} location={location} />

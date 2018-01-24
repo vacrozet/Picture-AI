@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { local } from '../utils/api.js'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
-import Item from '../components/item.js'
+// import Item from '../components/item.js'
 import '../css/gestionUser.css'
 const FormItem = Form.Item
 
@@ -45,6 +45,10 @@ class GestionUser extends Component {
   handleCheckbox () {
     this.setState({checkBox: !this.state.checkBox})
   }
+  handleChangePage (evt) {
+    this.props.history.push(`/gestionutilisateurs/${evt.target.name}`)
+    // console.log(evt.target.name)
+  }
 
   handleSendData () {
     local().put('/user/signup', {
@@ -85,7 +89,10 @@ class GestionUser extends Component {
             <div className='allUser'>
               {this.state.users ? this.state.users.map((res, index) => {
                 return (
-                  <Item res={res} key={index} />
+                  <div className='bodyItem' key={index}>
+                    <div className='mail'>{res.mail}</div>
+                    <Button className='buttonView' name={res.mail} onClick={this.handleChangePage.bind(this)}>Voir</Button>
+                  </div>
                 )
               })
               : (

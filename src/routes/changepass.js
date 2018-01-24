@@ -16,8 +16,7 @@ class ChangePass extends Component {
 
   componentWillMount () {
     const lock = global.localStorage.getItem('lock')
-
-    if (lock !== true) {
+    if (lock === false) {
       this.props.history.push('/home')
     }
   }

@@ -8,6 +8,10 @@ class Home extends Component {
   }
 
   componentWillMount () {
+    const lock = global.localStorage.getItem('lock')
+    if (lock === true) {
+      this.props.history.push('/changepass')
+    }
   }
 
   render () {

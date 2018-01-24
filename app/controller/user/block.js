@@ -22,7 +22,6 @@ module.exports = (req, res) => {
               block: block
             }
           })
-          db.close()
           res.status(200)
           res.json({
             success: true,

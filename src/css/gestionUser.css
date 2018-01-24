@@ -63,6 +63,38 @@
   padding: 5px;
 }
 
+.bodyGestionUser .blockGestionUser .WindowsGestionUser .allUser .bodyItem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: solid 1px var(--color1);
+  justify-content: space-around;
+  height: 45px;
+}
+
+.bodyGestionUser .blockGestionUser .WindowsGestionUser .allUser .bodyItem .mail {
+  margin: auto;
+  font-family: var(--police);
+}
+
+.bodyGestionUser .blockGestionUser .WindowsGestionUser .allUser .bodyItem .buttonView {
+  margin: auto;
+  font-family: var(--police);
+  background-color: var(--color2);
+  border: var(--color2);
+  color: var(--color1);
+  font-family: var(--police);
+}
+
+.bodyGestionUser .blockGestionUser .WindowsGestionUser .allUser .bodyItem .buttonView:hover {
+  margin: auto;
+  font-family: var(--police);
+  background-color: var(--color2);
+  border: var(--color2);
+  font-family: var(--police);
+  color: #ffffff;
+}
+
 @media screen and (max-width: 800px) {
   .bodyGestionUser {
     display: flex;

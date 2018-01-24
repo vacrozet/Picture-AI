@@ -33,20 +33,17 @@ class Signin extends Component {
         }
       }).then((res) => {
         if (res.data.success === true) {
-          console.log('je rentre ici')
-          console.log(res.data)
           this.props.handleConnexion(true, res.data.superUser)
           global.localStorage.setItem('token', res.data.token)
           if (res.data.lock === true) {
-            this.props.history.push('/changepass')
             global.localStorage.setItem('lock', true)
+            this.props.history.push('/changepass')
           } else {
-            this.props.history.push('/home')
             global.localStorage.setItem('lock', false)
+            this.props.history.push('/home')
           }
         }
       }).catch((err) => {
-        console.log(err.response.data)
         this.setState({
           loading: false
         })
