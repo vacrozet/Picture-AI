@@ -51,13 +51,18 @@ class GestionUser extends Component {
   }
 
   handleSendData () {
+    this.setState({loading: true})
     local().put('/user/signup', {
       mail: this.state.mail,
       superUser: this.state.checkBox
     }).then((res) => {
-      if (res.data.success === true) this.handleUpdateData()
+      if (res.data.success === true) {
+        this.setState({loading: false})
+        this.handleUpdateData()
+      }
     }).catch((err) => {
       console.log(err)
+      this.setState({loading: false})
     })
   }
 
@@ -73,10 +78,10 @@ class GestionUser extends Component {
               <Form layout='inline' className='form'>
                 <center>
                   <FormItem>
-                    <Input id='mail' name='mail' value={this.state.mail} onChange={this.handleChange.bind(this)} prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Adresse Mail' />
+                    <Input id='mail' name='mail' disabled={this.state.loading} value={this.state.mail} onChange={this.handleChange.bind(this)} prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Adresse Mail' />
                   </FormItem>
                   <FormItem>
-                    <Checkbox className='text' onChange={this.handleCheckbox.bind(this)}>Super Utilisateur</Checkbox>
+                    <Checkbox className='text' onChange={this.handleCheckbox.bind(this)} disabled={this.state.loading}>Super Utilisateur</Checkbox>
                   </FormItem>
                   <FormItem>
                     <Button type='primary' className='button' onClick={this.handleSendData.bind(this)} disabled={this.state.disabledAdd} loading={this.state.loading}>

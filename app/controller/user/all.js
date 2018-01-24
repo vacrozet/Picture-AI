@@ -9,13 +9,6 @@ function erreur (res, status, bool, message) {
   })
 }
 
-function getMomentJs (time) {
-  return (
-    moment.locale('fr'),
-    moment.unix(time / 10).format('lll')
-  )
-}
-
 module.exports = (req, res) => {
   if (req.user.superUser === true) {
     db.get().then((db) => {
@@ -27,7 +20,7 @@ module.exports = (req, res) => {
           delete element.path
           delete element.tokens
           delete element.project
-          element.lastConnexion = getMomentJs(element.lastConnexion)
+          delete element.lastConnexions
         })
         res.json({
           success: true,

@@ -27,7 +27,7 @@ module.exports = (req, res) => {
             delete element.path
             delete element.tokens
             delete element.project
-            element.lastConnexion = getMomentJs(element.lastConnexion)
+            if (element.lastConnexion !== '') element.lastConnexion = getMomentJs(element.lastConnexion)
           })
           res.status(200)
           res.json({

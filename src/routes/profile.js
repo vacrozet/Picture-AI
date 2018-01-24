@@ -25,7 +25,6 @@ class Profile extends Component {
     }).then((res) => {
       if (!res.data.superUser) this.props.history.push('/home')
       this.setState({data: res.data.result}, () => {
-        console.log(this.state.data)
       })
     }).catch((err) => {
       console.log(err)
