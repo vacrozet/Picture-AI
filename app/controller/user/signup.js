@@ -1,5 +1,8 @@
 const db = require('../../db.js')
-var sendmail = require('sendmail')({silent: true})
+var sendmail = require('sendmail')({
+  devPort: false, // Default: False
+  devHost: 'localhost' // Default: localhost
+})
 const generator = require('generate-password')
 const bcrypt = require('bcryptjs')
 const uuid = require('uuid')
@@ -13,7 +16,6 @@ function erreur (res, status, bool, message) {
 }
 
 module.exports = (req, res) => {
-  console.log(req.body)
   if (req.user.superUser === true) {
     if (req.body.mail.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
       db.get().then((db) => {
@@ -23,6 +25,8 @@ module.exports = (req, res) => {
             const pass = generator.generate({length: 5, numbers: true})
             console.log('envoi du mail -->')
             sendmail({
+              port: 587,
+              secure: true,
               from: 'soyuz.digital@soyuz.digital',
               to: req.body.mail,
               replyTo: 'valentin@soyuz.digital.com',
