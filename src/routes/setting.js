@@ -98,7 +98,7 @@ class Setting extends Component {
                   <div className=''>Date de Naissance:</div>
                   <DatePicker id='birthday' name='data' onChange={this.handleChangeDatePicker.bind(this)} defaultValue={moment(this.state.birthday, dateFormat)} format={dateFormat} disabled={this.state.loading} />
                   <div className=''>Mail:</div>
-                  <Input id='mail' className='input' name='mail' value={this.state.mail} onChange={this.handleChange.bind(this)} prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Mail' disabled={this.state.loading} />
+                  <Input id='mail' className='input' name='mail' value={this.state.mail} onChange={this.handleChange.bind(this)} prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder='Mail' disabled />
                   <Button type='primary' className='button' onClick={this.handleSendData.bind(this)} loading={this.state.loading}>
                     Save
                   </Button>

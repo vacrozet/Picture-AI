@@ -1,10 +1,2 @@
-changement de mail :
-- verifier l'adresse mail n'exite pas quand l'user veut le changer
-
-superUser:
-
-- Pensé à la gestion des superUser
-- il ne faut pas que les superUser peuvent supprimer d'autre super user --> sauf SEBASTIEN
-
 other:
 

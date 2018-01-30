@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { local } from '../utils/api.js'
-import { Button } from 'antd'
+import { Button, Modal } from 'antd'
 import '../css/profile.css'
 
 class Profile extends Component {
@@ -8,7 +8,8 @@ class Profile extends Component {
     super(props)
     this.state = {
       data: '',
-      loadingPassword: false
+      loadingPassword: false,
+      visible: false
     }
     this.handleUpdateData = this.handleUpdateData.bind(this)
   }
@@ -18,7 +19,7 @@ class Profile extends Component {
   }
 
   handleUpdateData () {
-    local().get('/user/onUser', {
+    local().get('/user/onuser', {
       params: {
         mail: this.props.match.params.profile
       }
@@ -53,16 +54,40 @@ class Profile extends Component {
       console.log(err)
     })
   }
+  handleSuperUser () {
+    local().put('/user/superuser', {
+      mail: this.state.data.mail
+    }).then((res) => {
+      this.handleUpdateData()
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 
   handleReinit () {
     this.setState({loadingPassword: true})
-    local().put('/user/resetPassAdmin', {
+    local().put('/user/resetpassadmin', {
       mail: this.state.data.mail
     }).then((res) => {
       if (res.data.success) this.setState({loadingPassword: false})
     }).catch((err) => {
       this.setState({loadingPassword: false})
     })
+  }
+
+  handleModal () {
+    return (
+      <Modal
+        title='Suppression ?'
+        visible={this.state.visible}
+        okText='Supprimer'
+        onOk={this.handleDelete.bind(this)}
+        cancelText='Annuler'
+        onCancel={() => { this.setState({visible: !this.state.visible}) }}
+      >
+        <p>Êtes - vous sur de vouloir supprimer l'utilisateur ?</p>
+      </Modal>
+    )
   }
 
   render () {
@@ -78,6 +103,7 @@ class Profile extends Component {
           </div>
           <div className='WindowsGestionUser'>
             <center>
+              {this.handleModal()}
               <p className='index'>Mail:</p>
               <p>{this.state.data.mail}</p>
               {this.state.data.prenom !== '' ? (
@@ -106,6 +132,20 @@ class Profile extends Component {
                   <p>Jamais</p>
                 )}
               </div>
+              <div>
+                <p className='index'>SuperUser:</p>
+                {this.state.data.superUser ? (
+                  <p>Oui</p>
+                ) : (
+                  <p>Non</p>
+                )}
+              </div>
+              {this.state.data.superUser ? (
+                <Button className='buttonModal' onClick={this.handleSuperUser.bind(this)}>Passer en User</Button>
+              ) : (
+                <Button className='buttonModal' onClick={this.handleSuperUser.bind(this)}>Passer en Super User</Button>
+              )}
+              <br />
               <Button type='danger' className='buttonModal'
                 loading={this.state.loadingPassword}
                 onClick={this.handleReinit.bind(this)}>Reinitialiser le Mot de Passe</Button><br />
@@ -114,7 +154,7 @@ class Profile extends Component {
               ) : (
                 <Button type='danger' className='buttonModal' onClick={this.handleBlock.bind(this)}>Bloquer</Button>
               )}
-              <Button type='danger' className='buttonModal' onClick={this.handleDelete.bind(this)}>Supprimer</Button><br />
+              <Button type='danger' className='buttonModal' onClick={() => { this.setState({visible: !this.state.visible}) }}>Supprimer</Button><br />
               <Button className='buttonModal' onClick={this.handleChangePage.bind(this)}>Revenir au Menu</Button>
             </center>
           </div>
