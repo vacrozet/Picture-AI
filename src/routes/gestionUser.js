@@ -47,7 +47,6 @@ class GestionUser extends Component {
   }
   handleChangePage (evt) {
     this.props.history.push(`/gestionutilisateurs/${evt.target.name}`)
-    // console.log(evt.target.name)
   }
 
   handleSendData () {

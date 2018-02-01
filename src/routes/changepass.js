@@ -29,7 +29,6 @@ class ChangePass extends Component {
   }
 
   handleChange (evt) {
-    console.log(evt.target.name)
     this.setState({[evt.target.name]: evt.target.value})
   }
 
@@ -50,7 +49,6 @@ class ChangePass extends Component {
   }
 
   handleKeyPress (evt) {
-    console.log('je passe')
     if (evt.key === 'Enter' || evt.target.value === 'changePass') {
       if (this.state.oldPass !== '' && this.state.newPass !== '' &&
       this.state.newPass1 !== '' && this.state.newPass === this.state.newPass1 &&
