@@ -11,7 +11,7 @@ import Home from './routes/home.js'
 import Signin from './routes/Signin.js'
 import Reset from './routes/reset.js'
 import Pass from './routes/changepass.js'
-import Setting from './routes/setting.js'
+import Settings from './routes/setting.js'
 import GestionUser from './routes/gestionUser.js'
 import Profile from './routes/profile.js'
 // import { local } from './utils/api'
@@ -61,7 +61,7 @@ class Index extends Component {
             <Pass history={history} match={match} location={location} />
           } />
           <Route exact path='/setting' render={({history, match, location}) =>
-            <Setting history={history} match={match} location={location} />
+            <Settings history={history} match={match} location={location} />
           } />
           <Route exact path='/gestionutilisateurs' render={({history, match, location}) =>
             <GestionUser history={history} match={match} location={location} />

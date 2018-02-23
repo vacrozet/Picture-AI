@@ -94,8 +94,12 @@ class GestionUser extends Component {
               {this.state.users ? this.state.users.map((res, index) => {
                 return (
                   <div className='bodyItem' key={index}>
-                    <div className='mail'>{res.mail}</div>
-                    <Button className='buttonView' name={res.mail} onClick={this.handleChangePage.bind(this)}>Voir</Button>
+                    <div className='text'>
+                      <div className='mail'>{res.mail}</div>
+                    </div>
+                    <div className='text'>
+                      <Button className='buttonView' name={res.mail} onClick={this.handleChangePage.bind(this)}>Voir</Button>
+                    </div>
                   </div>
                 )
               })

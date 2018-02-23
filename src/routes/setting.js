@@ -23,7 +23,7 @@ function dateTime (month) {
   return nbMonth
 }
 
-class Setting extends Component {
+class Settings extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -85,7 +85,7 @@ class Setting extends Component {
       <div className='bodySetting'>
         <div className='blockSetting'>
           <div className='title'>
-            <div className='name'>Info Utitlisateur</div>
+            <div className='name'>Infos Utitlisateur</div>
           </div>
           <div className='info'>
             <Form>
@@ -112,4 +112,4 @@ class Setting extends Component {
   }
 }
 
-export default Setting
+export default Settings

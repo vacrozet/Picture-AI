@@ -57,6 +57,9 @@ class Header extends Component {
       menu = (
         <Menu>
           <Menu.Item>
+            <div onClick={this.handleChangePage.bind(this, '/home')}>Home</div>
+          </Menu.Item>
+          <Menu.Item>
             <div onClick={this.handleChangePage.bind(this, '/setting')}>Setting</div>
           </Menu.Item>
           <Menu.Item>
@@ -70,6 +73,9 @@ class Header extends Component {
     } else {
       menu = (
         <Menu>
+          <Menu.Item>
+            <div onClick={this.handleChangePage.bind(this, '/home')}>Home</div>
+          </Menu.Item>
           <Menu.Item>
             <div onClick={this.handleChangePage.bind(this, '/setting')}>Setting</div>
           </Menu.Item>
@@ -88,7 +94,7 @@ class Header extends Component {
         <div className='profil'>
           {this.state.Connexion ? (
             <Dropdown overlay={menu} placement='bottomRight'>
-              <div className='picture'>oko</div>
+              <div className='picture'></div>
             </Dropdown>
           ) : (
             <div className='divButton'>

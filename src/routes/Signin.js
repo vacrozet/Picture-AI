@@ -8,39 +8,44 @@ const FormItem = Form.Item
 class Signin extends Component {
   constructor (props) {
     super(props)
-    this._mount = true
+    this._isMounted = true
     this.state = {
       mail: '',
       password: '',
       loading: false
     }
+    this._isMounted = false
     this.handleError = this.handleError.bind(this)
     this.handlekeyPress = this.handlekeyPress.bind(this)
   }
 
-  componentWillMount () {
-    this._mount = true
-    // console.log(this.props.location.pathname)
-  }
   componentWillUnmount () {
-    this._mount = false
+    this._isMounted = false
+  }
+
+  componentDidMount () {
+    this._isMounted = true
   }
 
   handleChange (evt) {
     this.setState({[evt.target.name]: evt.target.value})
   }
+
   handleError (div) {
-    var effet = document.getElementById(div)
-    effet.style.transition = '0.6s'
-    effet.style.border = 'solid 2px #FA0000'
-    setTimeout(() => {
-      if (this._mount === true) {
-        var effet = document.getElementById(div)
-        effet.style.transition = '0.6s'
-        effet.style.border = 'none'
-      }
-    }, 5000)
+    if (this._isMounted === true) {
+      var effet = document.getElementById(div)
+      effet.style.transition = 'border 0.6s ease'
+      effet.style.border = 'solid 2px #FA0000'
+      setTimeout(() => {
+        if (this._isMounted === true) {
+          var effet = document.getElementById(div)
+          effet.style.transition = 'border 0.6s ease'
+          effet.style.border = 'none'
+        }
+      }, 5000)
+    }
   }
+
   handlekeyPress (evt) {
     if (evt.key === 'Enter' || evt.target.value === 'connexion') {
       if (this.state.mail !== '' && this.state.password !== '') {
@@ -63,9 +68,7 @@ class Signin extends Component {
             }
           }
         }).catch((err) => {
-          this.setState({
-            loading: false
-          })
+          this.setState({ loading: false })
           if (err.response.data.success === false) this.handleError(err.response.data.div)
         })
       }

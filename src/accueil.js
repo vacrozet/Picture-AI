@@ -10,7 +10,7 @@ class Accueil extends Component {
   render () {
     return (
       <div className='bodyAccueil'>
-        <center>Bienvenue</center>
+        <div className='blockAccueil'>Reconnaissance de la composante d'une image</div>
       </div>
     )
   }

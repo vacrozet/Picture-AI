@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: 100vh;
+  padding-top: 60px;
   background-image: url('../image/fond.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -16,6 +17,7 @@
   padding: 25px;
   height: 330px;
   width: 430px;
+  opacity: 0.90;
 }
 
 .bodySignin .blockSignin .text {
@@ -49,7 +51,8 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: calc(100vh - 40px);
+    height: 100vh;
+    padding-top: 40px;
     background-image: url('../image/fond.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -63,6 +66,7 @@
     padding: 10px;
     height: 280px;
     width: 380px;
+    opacity: 0.90;
   }  
 }
 

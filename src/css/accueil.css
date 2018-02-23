@@ -1,8 +1,9 @@
 .bodyAccueil {
-  display: flex;
-  flex-direction: column;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: 100vh;
+  display: flex;
+  padding-top: 60px;
+  flex-direction: column;
   background-image: url('../image/fond.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -11,13 +12,29 @@
 
 @media screen and (max-width: 800px) {
   .bodyAccueil {
-    display: flex;
-    flex-direction: column;
     width: 100vw;
-    height: calc(100vh - 40px);
+    height: 100vh;
+    display: flex;
+    padding-top: 40px;
+    flex-direction: column;
     background-image: url('../image/fond.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;  
+    background-size: cover;
   }
+}
+
+.bodyAccueil .blockAccueil {
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+  font-size: 1em;
+  color: #fff;
+  padding: 10px;
+  background-color: #111;
+  font-family: var(--police);
+  letter-spacing: 10px;
+  text-align: center;
+  display: flex;
+  opacity: 0.65;;
 }

@@ -35,13 +35,13 @@ class ChangePass extends Component {
   handleError (div) {
     var effet = document.getElementsByClassName(div)
     for (let index = 0; index < effet.length; index++) {
-      effet[index].style.transition = '0.6s'
+      effet[index].style.transition = ' border 0.6s ease'
       effet[index].style.border = 'solid 2px #FA0000'
     }
     setTimeout(() => {
       if (this._mount === true) {
         for (let index = 0; index < effet.length; index++) {
-          effet[index].style.transition = '0.6s'
+          effet[index].style.transition = 'border 0.6s ease'
           effet[index].style.border = 'none'
         }
       }
