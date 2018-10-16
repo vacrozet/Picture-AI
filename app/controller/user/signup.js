@@ -1,17 +1,17 @@
 const db = require('../../db.js')
-var sendmail = require('sendmail')({
-  logger: {
-    debug: console.log,
-    info: console.info,
-    warn: console.warn,
-    error: console.error
-  },
-  silent: false,
-  devPort: false, // Default: False
-  devHost: 'localhost', // Default: localhost
-  smtpPort: 25, // Default: 25
-  smtpHost: -1
-})
+// var sendmail = require('sendmail')({
+//   logger: {
+//     debug: console.log,
+//     info: console.info,
+//     warn: console.warn,
+//     error: console.error
+//   },
+//   silent: false,
+//   devPort: false, // Default: False
+//   devHost: 'localhost', // Default: localhost
+//   smtpPort: 25, // Default: 25
+//   smtpHost: -1
+// })
 // const generator = require('generate-password')
 const bcrypt = require('bcryptjs')
 const uuid = require('uuid')
